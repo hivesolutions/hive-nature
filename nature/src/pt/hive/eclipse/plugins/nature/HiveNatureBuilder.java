@@ -25,7 +25,9 @@
 
 package pt.hive.eclipse.plugins.nature;
 
+import java.util.Arrays;
 import java.util.Date;
+import java.util.List;
 import java.util.Map;
 
 import org.eclipse.core.resources.IContainer;
@@ -56,6 +58,21 @@ public class HiveNatureBuilder extends IncrementalProjectBuilder {
      * values must be carefully handled as it may create performance issues.
      */
     private static final boolean FULL_BUILD_ENABLED = false;
+
+    /**
+     * The set of file extensions that are considered valid for the touching of
+     * the files, this filtering is required so that the performance does not
+     * degrade over large dimension projects. This extensions should refer only
+     * source code file extensions.
+     */
+    private static final String[] VALID_EXTENSIONS = { "py", "rb", "php", "c",
+            "cpp", "java" };
+
+    /**
+     * The runtime valid extensions list that is used as singleton object to
+     * search for the valid extension in the environment.
+     */
+    private List<String> validExtensions = null;
 
     /*
      * (non-Javadoc)
@@ -129,6 +146,13 @@ public class HiveNatureBuilder extends IncrementalProjectBuilder {
             // otherwise it must be a normal resource and the touch
             // action must be performed
             else {
+                // checks if the resource is considered valid and in case
+                // it's not returns immediately to avoid touch
+                boolean isValid = validResource(resource);
+                if (!isValid) {
+                    continue;
+                }
+
                 // "creates" a new date and uses it to retrieve
                 // the current system timestamp so that it's possible
                 // to touch the resource (change its internal date)
@@ -137,6 +161,20 @@ public class HiveNatureBuilder extends IncrementalProjectBuilder {
                 resource.setLocalTimeStamp(currentTimestamp);
             }
         }
+    }
+
+    private boolean validResource(IResource resource) {
+        // in case the valid extensions list is not defined
+        // it must be created from the array (for fast performance)
+        if (this.validExtensions == null) {
+            this.validExtensions = Arrays
+                    .asList(HiveNatureBuilder.VALID_EXTENSIONS);
+        }
+
+        // retrieves the (file) extension from the resource and uses
+        // it against the valid extension list to check for validation
+        String extension = resource.getFileExtension();
+        return this.validExtensions.contains(extension);
     }
 
     protected void fullBuild(final IProgressMonitor monitor)
