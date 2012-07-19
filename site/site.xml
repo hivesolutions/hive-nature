@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<site>
+   <description>
+      The hive update web site.
+   </description>
+   <feature url="features/pt.hive.eclipse.plugins.nature.feature_1.0.0.jar" id="pt.hive.eclipse.plugins.nature.feature" version="1.0.0">
+      <category name="Base"/>
+   </feature>
+   <category-def name="Base" label="Base"/>
+</site>

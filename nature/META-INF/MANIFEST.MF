@@ -1,0 +1,14 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: The Hive Eclipse nature
+Bundle-SymbolicName: pt.hive.eclipse.plugins.nature;singleton:=true
+Bundle-Version: 1.0.0
+Bundle-Activator: pt.hive.eclipse.plugins.nature.Activator
+Bundle-Vendor: Hive Solutions Lda.
+Require-Bundle: org.eclipse.ui,
+ org.eclipse.core.runtime,
+ org.eclipse.core.resources
+Bundle-RequiredExecutionEnvironment: J2SE-1.5,
+ JavaSE-1.6
+Bundle-ActivationPolicy: lazy
+Export-Package: pt.hive.eclipse.plugins.nature

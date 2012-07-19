@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension
+         id="hiveNature"
+         name="The Hive Eclipse nature"
+         point="org.eclipse.core.resources.natures">
+      <runtime>
+         <run
+               class="pt.hive.eclipse.plugins.nature.HiveNature">
+         </run>
+      </runtime>
+      <builder
+            id="pt.hive.eclipse.plugins.nature.hiveNatureBuilder">
+      </builder>
+   </extension>
+   <extension
+         id="hiveNatureBuilder"
+         name="The Hive Eclipse nature builder"
+         point="org.eclipse.core.resources.builders">
+      <builder
+            hasNature="true">
+         <run
+               class="pt.hive.eclipse.plugins.nature.HiveNatureBuilder">
+         </run>
+      </builder>
+   </extension>
+   <extension
+         id="hiveNatureActionSets"
+         name="The Hive Eclipse action sets"
+         point="org.eclipse.ui.actionSets">
+      <actionSet
+            id="pt.hive.eclipse.plugins.nature.actionSet"
+            label="Hive Nature Action Set"
+            visible="true">
+         <action
+               class="pt.hive.eclipse.plugins.nature.HiveNatureAction"
+               id="pt.hive.eclipse.plugins.nature.action"
+               label="&amp;Build Hive Nature"
+               menubarPath="project/hiveGroup"
+               state="true"
+               style="toggle"
+               tooltip="Enable Build Hive Nature">
+         </action>
+      </actionSet>
+   </extension>
+</plugin>
