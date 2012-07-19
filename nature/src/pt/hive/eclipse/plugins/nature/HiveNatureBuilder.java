@@ -51,6 +51,12 @@ public class HiveNatureBuilder extends IncrementalProjectBuilder {
      */
     public static final String BUILDER_ID = "pt.hive.eclipse.plugins.nature.hiveNatureBuilder";
 
+    /**
+     * Flag that controls if the full build is enabled for the hive nature, this
+     * values must be carefully handled as it may create performance issues.
+     */
+    private static final boolean FULL_BUILD_ENABLED = false;
+
     /*
      * (non-Javadoc)
      *
@@ -65,10 +71,15 @@ public class HiveNatureBuilder extends IncrementalProjectBuilder {
             return null;
         }
 
-        // in case the kind is full build
+        // in case the kind is full build, build in which all the elements
+        // will be run
         if (kind == FULL_BUILD) {
-            // calls the full build method
-            fullBuild(monitor);
+            // calls the full build method in case the full build
+            // mode is enabled, this conditional execution is meant
+            // to provide some performance during initial build
+            if (HiveNatureBuilder.FULL_BUILD_ENABLED) {
+                fullBuild(monitor);
+            }
         } else {
             // retrieves the delta value (changed files)
             IResourceDelta delta = getDelta(getProject());
@@ -109,18 +120,20 @@ public class HiveNatureBuilder extends IncrementalProjectBuilder {
 
         // iterates over all the resources
         for (IResource resource : resources) {
-            // in case the resource is a container
+            // in case the resource is a container must iterate over
+            // it's resources in order to touch them (recursion step)
             if (resource instanceof IContainer) {
                 // iterates over the resource
                 iterate((IContainer) resource);
-            } else {
-                // "creates" a new date
+            }
+            // otherwise it must be a normal resource and the touch
+            // action must be performed
+            else {
+                // "creates" a new date and uses it to retrieve
+                // the current system timestamp so that it's possible
+                // to touch the resource (change its internal date)
                 Date currentDate = new Date();
-
-                // retrieves the current timestamp
                 long currentTimestamp = currentDate.getTime();
-
-                // sets the current timestamp
                 resource.setLocalTimeStamp(currentTimestamp);
             }
         }
