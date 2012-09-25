@@ -1,5 +1,5 @@
 // Hive Development Framework
-// Copyright (C) 2008 Hive Solutions Lda.
+// Copyright (C) 2008-2012 Hive Solutions Lda.
 //
 // This file is part of Hive Development Framework.
 //
@@ -18,9 +18,9 @@
 
 // __author__    = João Magalhães <joamag@hive.pt>
 // __version__   = 1.0.0
-// __revision__  = $LastChangedRevision: 1273 $
-// __date__      = $LastChangedDate: 2009-02-05 15:20:43 +0000 (Thu, 05 Feb 2009) $
-// __copyright__ = Copyright (c) 2008 Hive Solutions Lda.
+// __revision__  = $LastChangedRevision$
+// __date__      = $LastChangedDate$
+// __copyright__ = Copyright (c) 2008-2012 Hive Solutions Lda.
 // __license__   = GNU General Public License (GPL), Version 3
 
 package pt.hive.eclipse.plugins.nature.actions;
