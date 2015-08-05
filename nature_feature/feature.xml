@@ -17,7 +17,7 @@
       GNU GENERAL PUBLIC LICENSE
                        Version 3, 29 June 2007
 
- Copyright (C) 2007 Free Software Foundation, Inc. &lt;http://fsf.org/&gt;
+ Copyright (c) 2007 Free Software Foundation, Inc. &lt;http://fsf.org/&gt;
  Everyone is permitted to copy and distribute verbatim copies
  of this license document, but changing it is not allowed.
 
@@ -648,7 +648,7 @@ state the exclusion of warranty; and each file should have at least
 the &quot;copyright&quot; line and a pointer to where the full notice is found.
 
     &lt;one line to give the program&apos;s name and a brief idea of what it does.&gt;
-    Copyright (C) &lt;year&gt;  &lt;name of author&gt;
+    Copyright (c) &lt;year&gt;  &lt;name of author&gt;
 
     This program is free software: you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
@@ -668,7 +668,7 @@ Also add information on how to contact you by electronic and paper mail.
   If the program does terminal interaction, make it output a short
 notice like this when it starts in an interactive mode:
 
-    &lt;program&gt;  Copyright (C) &lt;year&gt;  &lt;name of author&gt;
+    &lt;program&gt;  Copyright (c) &lt;year&gt;  &lt;name of author&gt;
     This program comes with ABSOLUTELY NO WARRANTY; for details type `show w&apos;.
     This is free software, and you are welcome to redistribute it
     under certain conditions; type `show c&apos; for details.
