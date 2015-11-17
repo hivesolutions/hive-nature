@@ -126,8 +126,7 @@ public class HiveNature implements IProjectNature {
 
                 // copies the commands to the new commands
                 System.arraycopy(commands, 0, newCommands, 0, i);
-                System.arraycopy(commands, i + 1, newCommands, i,
-                        commands.length - i - 1);
+                System.arraycopy(commands, i + 1, newCommands, i, commands.length - i - 1);
 
                 // sets the build specification with the new commands
                 description.setBuildSpec(newCommands);

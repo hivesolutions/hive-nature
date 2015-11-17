@@ -53,8 +53,7 @@ public class ToggleNatureAction implements IObjectActionDelegate {
         // in case the selection is of type structured selection
         if (selection instanceof IStructuredSelection) {
             // iterates over all the values of the selection
-            for (Iterator iterator = ((IStructuredSelection) selection)
-                    .iterator(); iterator.hasNext();) {
+            for (Iterator iterator = ((IStructuredSelection) selection).iterator(); iterator.hasNext();) {
                 // retrieves the next element from the iterator
                 Object element = iterator.next();
 
@@ -67,8 +66,7 @@ public class ToggleNatureAction implements IObjectActionDelegate {
                     project = (IProject) element;
                 } else if (element instanceof IAdaptable) {
                     // sets the project as the adapter value
-                    project = (IProject) ((IAdaptable) element)
-                            .getAdapter(IProject.class);
+                    project = (IProject) ((IAdaptable) element).getAdapter(IProject.class);
                 }
 
                 // in case the project is defined
@@ -125,8 +123,7 @@ public class ToggleNatureAction implements IObjectActionDelegate {
 
                     // copies the commands to the new commands
                     System.arraycopy(natures, 0, newNatures, 0, i);
-                    System.arraycopy(natures, i + 1, newNatures, i,
-                            natures.length - i - 1);
+                    System.arraycopy(natures, i + 1, newNatures, i, natures.length - i - 1);
 
                     // sets the natures in the project description
                     description.setNatureIds(newNatures);

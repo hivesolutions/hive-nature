@@ -65,8 +65,7 @@ public class HiveNatureBuilder extends IncrementalProjectBuilder {
      * degrade over large dimension projects. This extensions should refer only
      * source code file extensions.
      */
-    private static final String[] VALID_EXTENSIONS = { "py", "rb", "php", "c",
-            "cpp", "java" };
+    private static final String[] VALID_EXTENSIONS = { "py", "rb", "php", "c", "cpp", "java" };
 
     /**
      * The runtime valid extensions list that is used as singleton object to
@@ -80,8 +79,7 @@ public class HiveNatureBuilder extends IncrementalProjectBuilder {
      * @see org.eclipse.core.internal.events.InternalBuilder#build(int,
      * java.util.Map, org.eclipse.core.runtime.IProgressMonitor)
      */
-    protected IProject[] build(int kind, Map arguments, IProgressMonitor monitor)
-            throws CoreException {
+    protected IProject[] build(int kind, Map arguments, IProgressMonitor monitor) throws CoreException {
         // in case the building is not enabled
         if (!Activator.isBuildingEnabled()) {
             // returns immediately
@@ -167,8 +165,7 @@ public class HiveNatureBuilder extends IncrementalProjectBuilder {
         // in case the valid extensions list is not defined
         // it must be created from the array (for fast performance)
         if (this.validExtensions == null) {
-            this.validExtensions = Arrays
-                    .asList(HiveNatureBuilder.VALID_EXTENSIONS);
+            this.validExtensions = Arrays.asList(HiveNatureBuilder.VALID_EXTENSIONS);
         }
 
         // retrieves the (file) extension from the resource and uses
@@ -177,8 +174,7 @@ public class HiveNatureBuilder extends IncrementalProjectBuilder {
         return this.validExtensions.contains(extension);
     }
 
-    protected void fullBuild(final IProgressMonitor monitor)
-            throws CoreException {
+    protected void fullBuild(final IProgressMonitor monitor) throws CoreException {
         try {
             // retrieves the current project
             IProject project = getProject();
@@ -192,8 +188,7 @@ public class HiveNatureBuilder extends IncrementalProjectBuilder {
         }
     }
 
-    protected void incrementalBuild(IResourceDelta delta,
-            IProgressMonitor monitor) throws CoreException {
+    protected void incrementalBuild(IResourceDelta delta, IProgressMonitor monitor) throws CoreException {
         // creates a new touch resource delta visitor
         TouchResourceDeltaVisitor touchResourceDeltaVisitor = new TouchResourceDeltaVisitor();
 

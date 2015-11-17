@@ -106,8 +106,7 @@ public class HiveNatureAction implements IWorkbenchWindowActionDelegate {
 
         try {
             // creates the file input stream from the configuration file
-            FileInputStream fileInputStream = new FileInputStream(
-                    configurationFile);
+            FileInputStream fileInputStream = new FileInputStream(configurationFile);
 
             try {
                 // retrieves the value from the file input stream
@@ -151,8 +150,7 @@ public class HiveNatureAction implements IWorkbenchWindowActionDelegate {
 
         try {
             // creates the file output stream from the configuration file
-            FileOutputStream fileOutputStream = new FileOutputStream(
-                    configurationFile);
+            FileOutputStream fileOutputStream = new FileOutputStream(configurationFile);
 
             try {
                 // in case the building is enabled
